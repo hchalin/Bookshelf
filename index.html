@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header></header>
+    <button id="all">All</button>
+    <button id="favorites">Favorites</button>
+    <!-- <label for="cars">Choose a car:</label> -->
+<select name="sort" id="sort" >
+  <optgroup label="Sort">
+    <option value="A-Z">A-Z</option>
+    <option value="Z-A">Z-A</option>
+  </optgroup>
+  <optgroup label="Topics">
+    <option value="Low-High">Low-High</option>
+    <option value="High-Low">High-Low</option>
+  </optgroup>
+</select>
+    <div id="bookShelf"></div>
+
+
+    <script src="js/book-data.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

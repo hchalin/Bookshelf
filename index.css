@@ -1,0 +1,39 @@
+li,
+or,
+ul {
+  list-style: none;
+  font-family: "Amiri Quran", serif;
+}
+
+
+h1 {
+  font-family: "Amiri Quran", serif;
+  margin-left: 1.5em;
+  margin-bottom: 0;
+}
+
+h2 {
+  text-decoration: underline;
+  margin-left: 2em;
+  margin-top: 0;
+  font-size: 1.6em;
+  font-family: "Amiri Quran", serif;
+}
+
+body {
+  color: black;
+  background-color: #0a0000;
+  background-image: url("https://images.unsplash.com/photo-1531685250784-7569952593d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80");
+}
+
+ul > li {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(0.5px);
+}
+
+label {
+  display: flex;
+  justify-content: center;
+  
+
+}
