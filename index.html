@@ -1,48 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
     <header>
       <ul class="main-nav">
-      <li><a class="nav-item" href="index.html">HOME</a></li>
-      <li><a class="nav-item" href="contact.html">CONTACT</a></li>
-      <li>
-          <a class="nav-item" data-toggle="dropdown">ADD BOOK</a>
-         <section class="user_input" value="Submit" type="submit">
-        <input class="state" placeholder="State" type="text">
-            <input class="city" placeholder="City" type="text">
-            <input class="street" placeholder="Street" type="text">
-            <input class="type" placeholder="Type" type="text">
-        </div>
-        <button class="submit_btn">Add</button>
-      </li>
-  </ul></header>
+        <li><a class="nav-item" href="index.html">HOME</a></li>
+        <li><a class="nav-item" href="contact.html">CONTACT</a></li>
+        <li>
+          <h3 class="nav-item" id="">ADD BOOK</h3>
+          <section class="user_input" value="Submit" type="submit">
+            <input class="title" placeholder="Title" type="text" />
+            <input class="author" placeholder="Author" type="text" />
+            <input class="subjects" placeholder="Subjects" type="text" />
+            <input class="lang" placeholder="Language" type="text" />
+            <button class="submit_btn">Add Book</button>
+          </section>
+        </li>
+      </ul>
+    </header>
     <button id="all">All</button>
     <button id="favorites">Favorites</button>
     <!-- <label for="cars">Choose a car:</label> -->
-<select name="sort" id="sort" >
-  <optgroup label="Sort">
-    <option value="A-Z">A-Z</option>
-    <option value="Z-A">Z-A</option>
-  </optgroup>
-  <optgroup label="Topics">
-    <option value="Low-High">Low-High</option>
-    <option value="High-Low">High-Low</option>
-  </optgroup>
-</select>
+    <select name="sort" id="sort">
+      <optgroup label="Sort">
+        <option value="A-Z">A-Z</option>
+        <option value="Z-A">Z-A</option>
+      </optgroup>
+      <optgroup label="Topics">
+        <option value="Low-High">Low-High</option>
+        <option value="High-Low">High-Low</option>
+      </optgroup>
+    </select>
+    <span id="allBookCounter"></span>
+    <!-- <span id="allFavsCounter"></span> -->
     <div id="bookShelf"></div>
-
 
     <script src="js/book-data.js"></script>
     <script src="js/class.js"></script>
     <script src="js/index.js"></script>
     <script src="js/addBook.js"></script>
-</body>
+  </body>
 </html>

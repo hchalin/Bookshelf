@@ -9,6 +9,7 @@ class Book {
   
     render() {
       let bookWrapper = document.createElement("li");
+      bookWrapper.classList.add('bookWrapper')
       let bookTitle = document.createElement("h1");
       bookTitle.textContent = `${this.title} by: ${this.author}`;
       let subjectHeader = document.createElement("h2");
@@ -39,7 +40,7 @@ class Book {
   
     addBook(newBook) {
       // console.log("yo");
-      this.bookShelf.push(newBook);
+      this.bookShelf.unshift(newBook);
     }
   
     addToFavorites(book) {
@@ -72,11 +73,11 @@ class Book {
     }
     render() {
       // let numOfBooks = 0;
-      let bookCounter = document.querySelector("header");
+      let bookCounter = document.querySelector('#allBookCounter');
       let totalBooks = this.bookShelf.reduce((acc, curr) => acc + 1, 0);
       let totalFavorites = this.favoritesList.reduce((acc, curr) => acc + 1, 0);
-      bookCounter.innerHTML = `There are ${totalBooks} total books <br> 
-      There are ${totalFavorites} favorite books`;
+      bookCounter.innerHTML = `<span>There are ${totalBooks} total books <br> 
+      There are ${totalFavorites} favorite books</span>`;
   
       let body = document.querySelector("#bookShelf");
       body.innerHTML = ""; // this resets the page when called
@@ -88,6 +89,7 @@ class Book {
         // creates fave btn and adds event listener=======
         let favoriteButton = document.createElement("button");
         favoriteButton.innerHTML = `Favorite`;
+        favoriteButton.classList.add('favBtn')
         favoriteButton.addEventListener("click", (e) => {
           // only one copy of the book can be added
           if (!this.favoritesList.includes(book)) {
@@ -110,7 +112,7 @@ class Book {
   
     // everything with rendering fave books
     favoritesRender() {
-      let body = document.querySelector("#bookShelf");
+      let body = document.querySelector("#allBookCounter");
       body.innerHTML = ""; // this resets the page when called
       let faveBookWrapper = document.createElement("ul");
       this.favoritesList.map((book) => {
@@ -120,11 +122,12 @@ class Book {
         faveBookWrapper.append(book.render());
         body.append(faveBookWrapper);
       });
-      let bookCounter = document.querySelector("header");
+      let bookCounter = document.querySelector('#allBookCounter');
       let totalBooks = this.bookShelf.reduce((acc, curr) => acc + 1, 0);
       let totalFavorites = this.favoritesList.reduce((acc, curr) => acc + 1, 0);
-      bookCounter.innerHTML = `There are ${totalBooks} total books <br> 
-      There are ${totalFavorites} favorite books`;
+      bookCounter.innerHTML = `<span>There are ${totalBooks} total books <br> 
+      There are ${totalFavorites} favorite books</span>`;
+  
     }
   }
 

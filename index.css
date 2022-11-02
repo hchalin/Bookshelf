@@ -5,6 +5,20 @@ ul {
   font-family: "Amiri Quran", serif;
 }
 
+/* ul > li{
+  backdrop-filter: blur(2px);
+  border: 1px solid black;
+  border-radius: 5px;
+} */
+
+a {
+  width: fit-content;
+  color: black;
+  margin-left: 1em;
+}
+a:hover {
+  text-shadow: 1px 1px 2px black;
+}
 
 h1 {
   font-family: "Amiri Quran", serif;
@@ -20,40 +34,46 @@ h2 {
   font-family: "Amiri Quran", serif;
 }
 
+h3 {
+  margin-left: 1.5em;
+  text-decoration: underline;
+}
+
 body {
   color: black;
-  background-color: #0a0000;
+
   background-image: url("https://images.unsplash.com/photo-1531685250784-7569952593d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80");
 }
 
+.favBtn {
+  margin-bottom: 3em;
+}
+.bookWrapper {
+  backdrop-filter: blur(2px);
+  border: 1px solid black;
+  border-radius: 5px;
 
+}
 
-/* label {
-  display: flex;
-  justify-content: center;
-  
+.main-nav {
+  background: #faf9f6;
 
-} */
-
-.main-nav{
-  background: 	#FAF9F6 ;
-  
   padding: 0;
 }
 
-.main-nav li{
+.main-nav li {
   list-style: none;
-  display: inline-block;
-  position: relative; /*with respect to this element dropdown-menu is positioned*/
+  display: flex;
+  flex-direction: column;
 }
 
-
-
-
-a.nav-item{
-  display: inline-block;
+a.nav-item {
+  /* display: inline-block; */
   padding: 10px;
   text-decoration: none;
   cursor: pointer;
 }
 
+input {
+  margin: 1em;
+}
