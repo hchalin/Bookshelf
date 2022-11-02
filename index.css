@@ -26,14 +26,34 @@ body {
   background-image: url("https://images.unsplash.com/photo-1531685250784-7569952593d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80");
 }
 
-ul > li {
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(0.5px);
-}
 
-label {
+
+/* label {
   display: flex;
   justify-content: center;
   
 
+} */
+
+.main-nav{
+  background: 	#FAF9F6 ;
+  
+  padding: 0;
 }
+
+.main-nav li{
+  list-style: none;
+  display: inline-block;
+  position: relative; /*with respect to this element dropdown-menu is positioned*/
+}
+
+
+
+
+a.nav-item{
+  display: inline-block;
+  padding: 10px;
+  text-decoration: none;
+  cursor: pointer;
+}
+

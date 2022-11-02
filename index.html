@@ -9,7 +9,21 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <header></header>
+    <header>
+      <ul class="main-nav">
+      <li><a class="nav-item" href="index.html">HOME</a></li>
+      <li><a class="nav-item" href="contact.html">CONTACT</a></li>
+      <li>
+          <a class="nav-item" data-toggle="dropdown">ADD BOOK</a>
+         <section class="user_input" value="Submit" type="submit">
+        <input class="state" placeholder="State" type="text">
+            <input class="city" placeholder="City" type="text">
+            <input class="street" placeholder="Street" type="text">
+            <input class="type" placeholder="Type" type="text">
+        </div>
+        <button class="submit_btn">Add</button>
+      </li>
+  </ul></header>
     <button id="all">All</button>
     <button id="favorites">Favorites</button>
     <!-- <label for="cars">Choose a car:</label> -->
@@ -29,5 +43,6 @@
     <script src="js/book-data.js"></script>
     <script src="js/class.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/addBook.js"></script>
 </body>
 </html>

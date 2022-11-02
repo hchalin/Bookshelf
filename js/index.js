@@ -122,3 +122,4 @@ favs.addEventListener("click", () => {
 
   newBookShelf.favoritesRender();
 });
+
