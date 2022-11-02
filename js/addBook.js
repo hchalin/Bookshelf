@@ -9,7 +9,7 @@ const lang = document.querySelector('.lang')
 
 submit_btn.addEventListener('click', ()=>{
     const subjectArr = subject.value.split(',')
-    console.log(subjectArr)
+    // console.log(subjectArr)
     const bookAdded = new Book(
         author.value,
         lang.value,
@@ -21,7 +21,7 @@ submit_btn.addEventListener('click', ()=>{
 
     if (!title.value || !author.value || !subject.value || !lang.value ){
         alert(
-            'Please fill out the information correctly.'
+            'Please fill out the information correctly. Use a "," to separate the subjects.'
         )
     }else {
         console.log(bookAdded)
