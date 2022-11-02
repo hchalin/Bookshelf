@@ -61,7 +61,7 @@ body {
   padding: 0;
 }
 
-.main-nav li {
+.main-nav li  {
   list-style: none;
   display: flex;
   flex-direction: column;
