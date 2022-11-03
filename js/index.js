@@ -98,5 +98,6 @@ all.addEventListener("click", (event) => {
 });
 
 favs.addEventListener("click", () => {
+  console.log("favs has been rendered");
   newBookShelf.favoritesRender();
 });

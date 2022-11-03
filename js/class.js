@@ -1,10 +1,10 @@
 class Book {
-  constructor(author, language, subject, title) {
+  constructor(author, language, subject, title, favorite) {
     this.title = title;
     this.author = author;
     this.language = language;
     this.subject = subject;
-    //this.favorite = false;
+    this.favorite = false;
   }
 
   render() {
@@ -89,6 +89,8 @@ class Bookshelf {
       favoriteButton.addEventListener("click", (e) => {
         // only one copy of the book can be added
         if (!this.favoritesList.includes(book)) {
+          book.favorite = true;
+
           console.log(`${book.title} has been added to favorites`);
           this.addToFavorites(book);
           favoriteButton.style.color = "red";
@@ -108,11 +110,11 @@ class Bookshelf {
       commentButton.addEventListener("click", () => {
         console.log("comment btn clicked");
         testBox.innerHTML = "this is the test box";
-        
+
         // bookshelfWrapper.append(testBox);
       });
 
-      bookshelfWrapper.append(book.render(), favoriteButton, commentButton, testBox);
+      bookshelfWrapper.append(book.render(), favoriteButton, commentButton);
       body.append(bookshelfWrapper);
       // return bookshelfWrapper;
     });
@@ -120,20 +122,21 @@ class Bookshelf {
 
   // everything with rendering fave books
   favoritesRender() {
-    let body = document.querySelector("#allBookCounter");
+    let body = document.querySelector("#bookShelf");
+    console.log(`favs: `, this.favoritesList);
     body.innerHTML = ""; // this resets the page when called
     let faveBookWrapper = document.createElement("ul");
     this.favoritesList.map((book) => {
       // create a instance of the book to render
       const faveBook = book.render();
 
-      faveBookWrapper.append(book.render());
+      faveBookWrapper.append(faveBook);
       body.append(faveBookWrapper);
     });
     let bookCounter = document.querySelector("#allBookCounter");
     let totalBooks = this.bookShelf.reduce((acc, curr) => acc + 1, 0);
     let totalFavorites = this.favoritesList.reduce((acc, curr) => acc + 1, 0);
-    bookCounter.innerHTML = `<span>There are ${totalBooks} total books <br> 
+    bookCounter.innerHTML = `<span>There are ${totalBooks} total books <br>
       There are ${totalFavorites} favorite books</span>`;
   }
 }
