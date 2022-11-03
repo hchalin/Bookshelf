@@ -1,10 +1,11 @@
 class Book {
-  constructor(author, language, subject, title, favorite) {
+  constructor(author, language, subject, title) {
     this.title = title;
     this.author = author;
     this.language = language;
     this.subject = subject;
-    this.favorite = false;
+    // this.favorite = false;
+    this.comments = [];
   }
 
   render() {
@@ -24,10 +25,73 @@ class Book {
       listOfSubjects.append(aSubject);
     }
 
-    bookWrapper.append(bookTitle, subjectHeader, listOfSubjects);
+    // create comment btn and adds event listener ========
+
+    const addCommentBtn = document.createElement("button");
+    addCommentBtn.innerHTML = "add Comment";
+    // let commentBox = document.createElement("input");
+    const commentHeader = document.createElement("h2");
+    commentHeader.innerHTML = "Comments";
+    const listOfComments = document.createElement("ol");
+    // listOfComments.innerHTML = this.comments
+
+    let commentBox = document.createElement("input");
+    commentBox.placeholder = "Comment";
+    addCommentBtn.addEventListener("click", () => {
+      bookWrapper.append(commentBox);
+
+      commentBox.classList.add("commBtn"); // for CSS
+
+      commentBox.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          // stops from header being gen with no comms
+          if (!commentBox.value) {
+            alert("Please add a comment before submitting");
+            return;
+          }
+          // resets comment list
+          listOfComments.innerHTML = "";
+
+          // this.comments = this.comments;
+          this.comments.unshift(commentBox.value); // add comment to arr
+          console.log(this.comments);
+
+          for (let i = 0; i < this.comments.length; i++) {
+            // loop arr
+            // this.comments = '';
+            const aComment = document.createElement("li");
+            aComment.textContent = this.comments[i];
+            // aComment.value='subject'
+            listOfComments.append(aComment);
+          }
+
+          commentBox.value = "";
+        }
+      });
+
+      // bookshelfWrapper.append(testBox);
+    });
+    for (let i = 0; i < this.comments.length; i++) {
+      // loop arr
+      // commentArr = '';
+      const aComment = document.createElement("li");
+      aComment.textContent = this.comments[i];
+      // aComment.value='subject'
+      listOfComments.append(aComment);
+    }
+
+    bookWrapper.append(
+      bookTitle,
+      subjectHeader,
+      listOfSubjects,
+      addCommentBtn,
+      commentHeader,
+      listOfComments
+    );
     return bookWrapper;
   }
 }
+
 //============================================
 class Bookshelf {
   constructor() {
@@ -62,7 +126,6 @@ class Bookshelf {
         book.title
       );
       anArray.push(bookInstance);
-      // console.log(book.subject)
     }
     this.bookShelf = anArray;
 
@@ -94,7 +157,6 @@ class Bookshelf {
           console.log(`${book.title} has been added to favorites`);
           this.addToFavorites(book);
           favoriteButton.style.color = "red";
-          // newBookShelf.favoritesRender()
         } else if (this.favoritesList.includes(book)) {
           // rms book from list and changes style
           console.log(`${book.title} removed from favorites`);
@@ -102,19 +164,8 @@ class Bookshelf {
           favoriteButton.style.color = "black";
         }
       }); //  ==============================================
-      // create comment btn and adds event listener ========
-      let commentButton = document.createElement("button");
-      commentButton.innerHTML = `Add Comment`;
-      commentButton.classList.add("commBtn");
-      const testBox = document.createElement("div");
-      commentButton.addEventListener("click", () => {
-        console.log("comment btn clicked");
-        testBox.innerHTML = "this is the test box";
 
-        // bookshelfWrapper.append(testBox);
-      });
-
-      bookshelfWrapper.append(book.render(), favoriteButton, commentButton);
+      bookshelfWrapper.append(book.render(), favoriteButton);
       body.append(bookshelfWrapper);
       // return bookshelfWrapper;
     });
