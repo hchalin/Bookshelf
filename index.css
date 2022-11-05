@@ -52,7 +52,6 @@ body {
   backdrop-filter: blur(2px);
   border: 1px solid black;
   border-radius: 5px;
-
 }
 
 .main-nav {
@@ -61,7 +60,7 @@ body {
   padding: 0;
 }
 
-.main-nav li  {
+.main-nav li {
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -85,3 +84,7 @@ input {
 /* .bookWrapper{
   width: 20vw;
 } */
+
+.commentBtn {
+  margin-left: 2.6em;
+}

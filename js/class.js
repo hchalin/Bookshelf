@@ -1,4 +1,5 @@
 class Book {
+  // creates a  book
   constructor(author, language, subject, title) {
     this.title = title;
     this.author = author;
@@ -28,16 +29,21 @@ class Book {
     // create comment btn and adds event listener ========
 
     const addCommentBtn = document.createElement("button");
-    addCommentBtn.innerHTML = "add Comment";
+    addCommentBtn.innerHTML = "Add Comment";
+    addCommentBtn.classList.add('commentBtn')
     // let commentBox = document.createElement("input");
     const commentHeader = document.createElement("h2");
-    commentHeader.innerHTML = "Comments";
+
     const listOfComments = document.createElement("ol");
-    // listOfComments.innerHTML = this.comments
+
+    //toggle comments
+    let commentSection = false;
 
     let commentBox = document.createElement("input");
     commentBox.placeholder = "Comment";
     addCommentBtn.addEventListener("click", () => {
+      console.log((commentSection = !commentSection));
+      commentHeader.innerHTML = "Comments";
       bookWrapper.append(commentBox);
 
       commentBox.classList.add("commBtn"); // for CSS
@@ -49,19 +55,21 @@ class Book {
             alert("Please add a comment before submitting");
             return;
           }
+          if (commentBox.value.length > 280) {
+            alert("Comments have to be less than 280 characters");
+            commentBox.value = "";
+            return;
+          }
+
           // resets comment list
           listOfComments.innerHTML = "";
-
-          // this.comments = this.comments;
-          this.comments.unshift(commentBox.value); // add comment to arr
+          // add comment to arr
+          this.comments.unshift(commentBox.value);
           console.log(this.comments);
 
           for (let i = 0; i < this.comments.length; i++) {
-            // loop arr
-            // this.comments = '';
             const aComment = document.createElement("li");
             aComment.textContent = this.comments[i];
-            // aComment.value='subject'
             listOfComments.append(aComment);
           }
 
@@ -175,7 +183,8 @@ class Bookshelf {
   favoritesRender() {
     let body = document.querySelector("#bookShelf");
     console.log(`favs: `, this.favoritesList);
-    body.innerHTML = ""; // this resets the page when called
+    // this resets the page when called
+    body.innerHTML = ""; 
     let faveBookWrapper = document.createElement("ul");
     this.favoritesList.map((book) => {
       // create a instance of the book to render
